@@ -26,7 +26,6 @@ struct GraphDragModifier<NodeID: Hashable>: ViewModifier {
         content.gesture(dragGesture)
     }
 
-    @inlinable
     @State
     public var dragState: GraphDragState<NodeID>?
 
@@ -36,7 +35,7 @@ struct GraphDragModifier<NodeID: Hashable>: ViewModifier {
     @usableFromInline
     let action: ((GraphDragState<NodeID>?) -> Void)?
 
-    @inlinable
+    @usableFromInline
     init(
         graphProxy: GraphProxy,
         action: ((GraphDragState<NodeID>?) -> Void)? = nil
@@ -51,7 +50,6 @@ struct GraphDragModifier<NodeID: Hashable>: ViewModifier {
     @inlinable
     static var minimumAlphaAfterDrag: CGFloat { 0.5 }
 
-    @inlinable
     public func onEnded(
         value: DragGesture.Value
     ) {
@@ -74,7 +72,6 @@ struct GraphDragModifier<NodeID: Hashable>: ViewModifier {
         }
     }
 
-    @inlinable
     public func onChanged(
         value: DragGesture.Value
     ) {
